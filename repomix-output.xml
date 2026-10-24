@@ -1644,18 +1644,6 @@ export const getCategoryBySlug = async (
 };
 </file>
 
-<file path="src/lib/auth-client.ts">
-"use client";
-
-import { createAuthClient } from "better-auth/react";
-
-export const authClient = createAuthClient({
-  baseURL: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
-});
-
-export const { signIn, signUp, signOut, useSession } = authClient;
-</file>
-
 <file path="src/lib/auth.ts">
 import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
@@ -2135,6 +2123,18 @@ const HomePage = async () => {
 };
 
 export default HomePage;
+</file>
+
+<file path="src/lib/auth-client.ts">
+"use client";
+
+import { createAuthClient } from "better-auth/react";
+
+export const authClient = createAuthClient({
+  baseURL: process.env.NEXT_PUBLIC_APP_URL || "https://assignment-7-mu-ebon.vercel.app",
+});
+
+export const { signIn, signUp, useSession, signOut } = authClient;
 </file>
 
 <file path="README.md">
