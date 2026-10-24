@@ -21,13 +21,11 @@ const ProductCard = ({ product }: { product: Product }) => {
           <h3 className="truncate text-sm font-semibold text-[#1D271F]">
             {product.nameBn}
           </h3>
-          <p className="text-xs text-base-content/60">
-            {formatUnit(product.unit)}
-          </p>
+          <p className="text-xs text-[#1D271F]">{formatUnit(product.unit)}</p>
         </div>
       </div>
 
-      <p className="mt-4 text-xs text-base-content/60">আজকের দাম</p>
+      <p className="mt-4 text-xs text-[#1D271F]">আজকের দাম</p>
       <div className="mt-1 flex items-end justify-between gap-2">
         <p className="text-lg font-bold text-[#1D271F]">
           {formatPrice(product.today)}

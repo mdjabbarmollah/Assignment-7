@@ -94,7 +94,7 @@ const SignupPage = () => {
 
   const handleSocialSignUp = async (provider: 'google' | 'github') => {
     try {
-      // সোশ্যাল সাইন আপ থেকে ফিরে এসে হোমে টোস্ট দেখানোর চিহ্ন
+      
       localStorage.setItem(LOGIN_FLAG, provider);
 
       const { error } = await signIn.social({ provider, callbackURL: '/' });

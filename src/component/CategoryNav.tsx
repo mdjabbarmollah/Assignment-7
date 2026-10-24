@@ -12,7 +12,7 @@ const idleClass = 'text-[#1D271F] hover:bg-base-200';
 const CategoryNav = ({ categories }: { categories: Category[] }) => {
   const pathname = usePathname();
 
-  // /category/chal → "chal"
+ 
   const activeSlug = pathname.startsWith('/category/')
     ? pathname.split('/')[2]
     : null;

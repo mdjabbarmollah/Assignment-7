@@ -2,8 +2,8 @@
 
 নিত্যপ্রয়োজনীয় পণ্যের দৈনিক বাজারদর এক নজরে দেখার একটি ওয়েব অ্যাপ। চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম, বাজারভিত্তিক তুলনা এবং দামের পরিবর্তন দেখা যায়।
 
-🔗 **Live:** আপনার-লাইভ-লিংক
-📦 **Repo:** আপনার-গিটহাব-লিংক
+🔗 **Live:** https://assignment-7-mu-ebon.vercel.app
+📦 **Repo:** https://github.com/mdjabbarmollah/Assignment-7
 
 ## ✨ মূল ফিচার
 
@@ -22,11 +22,11 @@
 
 ## 🚀 লোকালে চালানো
 
-\`\`\`bash
-git clone আপনার-রিপো-লিংক
-cd আপনার-ফোল্ডার
+```bash
+git clone https://github.com/mdjabbarmollah/Assignment-7.git
+cd Assignment-7
 npm install
 npm run dev
+```
 
-
-`.env.local` এ দিন: `MONGODB_URI`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, `NEXT_PUBLIC_APP_URL`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`
+প্রজেক্টের মূল ফোল্ডারে `.env` ফাইল বানিয়ে এই key-গুলো দিন: `MONGODB_URI`, `BETTER_AUTH_SECRET`, `BETTER_AUTH_URL`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`

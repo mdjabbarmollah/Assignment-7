@@ -6,7 +6,8 @@ import { toBengaliNumber, type Product } from '@/lib/utils';
 type SectionProps = {
   id?: string;
   title: string;
-  titleColor?: string;
+  icon?: string;
+  iconColor?: string;
   subtitle?: string;
   products: Product[];
 };
@@ -14,17 +15,17 @@ type SectionProps = {
 const Section = ({
   id,
   title,
-  titleColor,
+  icon,
+  iconColor,
   subtitle,
   products,
 }: SectionProps) => (
   <section id={id} className="scroll-mt-4">
-    <h2 className={`text-lg font-bold ${titleColor ?? 'text-[#1D271F]'}`}>
+    <h2 className="flex items-center gap-2 text-xl font-bold text-[#1D271F]">
+      {icon && <span className={`text-sm ${iconColor ?? ''}`}>{icon}</span>}
       {title}
     </h2>
-    {subtitle && (
-      <p className="mt-1 text-xs text-base-content/60">{subtitle}</p>
-    )}
+    {subtitle && <p className="mt-1 text-xs text-[#1D271F]/70">{subtitle}</p>}
     <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {products.map(p => (
         <ProductCard key={p.id} product={p} />
@@ -36,13 +37,11 @@ const Section = ({
 const HomePage = async () => {
   const products = await getProducts();
 
-  
   const risers = products
     .filter(p => p.change.pct > 0)
     .sort((a, b) => b.change.pct - a.change.pct)
     .slice(0, 6);
 
-  
   const fallers = products
     .filter(p => p.change.pct < 0)
     .sort((a, b) => a.change.pct - b.change.pct)
@@ -53,14 +52,16 @@ const HomePage = async () => {
       <Hero />
 
       <Section
-        title="▲ আজ দাম বেড়েছে"
-        titleColor="text-red-600"
+        icon="▲"
+        iconColor="text-red-600"
+        title="আজ দাম বেড়েছে"
         products={risers}
       />
 
       <Section
-        title="▼ আজ দাম কমেছে"
-        titleColor="text-green-600"
+        icon="▼"
+        iconColor="text-green-600"
+        title="আজ দাম কমেছে"
         products={fallers}
       />
 

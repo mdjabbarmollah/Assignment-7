@@ -20,3 +20,18 @@
 .ticker-track:hover {
   animation-play-state: paused;
 }
+
+
+.fieldset .label {
+  color: #1d271f;
+  font-weight: 500;
+}
+
+.fieldset .input {
+  color: #1d271f;
+}
+
+.fieldset .input::placeholder {
+  color: #1d271f;
+  opacity: 0.55;
+}

@@ -23,19 +23,15 @@ export default async function CategoryPage({
     ? (sort as SortOrder)
     : 'default';
 
-  // ক্যাটাগরির তালিকা আর এই ক্যাটাগরির পণ্য একসাথে আনা
   const [categories, products] = await Promise.all([
     getCategories(),
     getProductsByCategory(slug),
   ]);
 
-  // ক্যাটাগরির তালিকা থেকে এই slug খোঁজা
   const category = categories.find(c => c.slug === slug);
 
-  // ক্যাটাগরির তালিকায় না থাকলে এবং পণ্যও না থাকলে 404
   if (!category && products.length === 0) notFound();
 
-  // শিরোনাম ও আইকন: তালিকায় থাকলে সেটা, না থাকলে পণ্য থেকে
   const title = category?.nameBn ?? products[0]?.categoryNameBn ?? slug;
   const icon = category?.icon ?? products[0]?.categoryIcon ?? '';
 
@@ -53,13 +49,14 @@ export default async function CategoryPage({
       </div>
 
       <div className="flex flex-col justify-between gap-4 rounded-2xl border border-base-200 bg-base-100 p-6 shadow-sm sm:flex-row sm:items-center">
-        <div>
-          <h1 className="text-2xl font-bold text-[#1D271F]">
-            {icon} {title}
-          </h1>
-          <p className="mt-1 text-sm text-base-content/60">
-            মোট {toBengaliNumber(sortedProducts.length)}টি পণ্য পাওয়া গেছে
-          </p>
+        <div className="flex items-center gap-3">
+          <span className="text-4xl">{icon}</span>
+          <div>
+            <h1 className="text-2xl font-bold text-[#1D271F]">{title}</h1>
+            <p className="mt-1 text-sm text-base-content/60">
+              মোট {toBengaliNumber(sortedProducts.length)}টি পণ্য পাওয়া গেছে
+            </p>
+          </div>
         </div>
         <SortSelect value={safeSort} />
       </div>
