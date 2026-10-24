@@ -65,7 +65,7 @@ export default async function ProductDetailPage({
       valueClass: 'text-green-600',
     },
     {
-      label: 'সর্বাধিক দাম',
+      label: '',
       value: formatBengaliNumber(max),
       note: 'সবচেয়ে বেশি দামের বাজার',
       valueClass: 'text-red-600',
@@ -131,11 +131,10 @@ export default async function ProductDetailPage({
         </h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {stats.map(s => (
-            <div
-              key={s.label}
-              className="rounded-xl border border-base-200 p-4"
-            >
-              <p className="text-xs text-[#1D271F]/70">{s.label}</p>
+            <div key={s.note} className="rounded-xl border border-base-200 p-4">
+              {s.label && (
+                <p className="text-xs text-[#1D271F]/70">{s.label}</p>
+              )}
               <p className={`mt-1 text-xl font-bold ${s.valueClass}`}>
                 {s.value} <span className="text-xs font-semibold">টাকা</span>
               </p>
